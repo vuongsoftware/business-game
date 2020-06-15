@@ -1,0 +1,28 @@
+<div class="manager-container">
+    <h1>Managers</h1>
+    <div class="sub-heading padding">
+        Managers make life easier
+    </div>
+    <div class="hire-detail padding">
+        Hire one to run your business for you, or to maximize efficieny. All for just one easy payment.
+    </div>
+
+    <div class="managers padding">
+        <div class="manager display-flex pad-8" *ngFor="let manager of managers; let i = index">
+            <div class="profile-pic pad-8"></div>
+            <div class="details display-flex-column pad-8">
+                <div class="name"><b>{{ manager.name }}</b></div>
+                <div class="business">{{ manager.details }}</div>
+                <div class="fees">${{ manager.fees | number: '1.2-2' }}</div>
+            </div>
+            <button 
+                class="buy-btn shadow" 
+                mat-button 
+                [disabled]="!(currentBalance >= manager.fees && hiring[i])"
+                (click)="automateBusiness(i)">
+                {{hiring[i]?'Hire':'Hired'}}!
+            </button>
+        </div>
+    </div>
+</div>
+

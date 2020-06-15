@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$ruler: 16px;
+$color-red: #AE1100;
+$color-bg: #EBECF0;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+.shadow {
+    color:#61677C;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow !important;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    
+    &:hover:enabled {
+      box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow !important;
+    }
+    
+    &:enabled {
+      background-color: #F9CB48;
+    }
+
+    &:active:enabled {
+      box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white !important;
+    }
+    
+    .icon {
+      margin-right: $ruler/2;
+    }
+    
+    &.unit {
+      border-radius: $ruler/2;
+      line-height: 0;
+      width: $ruler*3;
+      height: $ruler*3;
+      display:inline-flex;
+      justify-content: center;
+      align-items:center;
+      margin: 0 $ruler/2;
+      font-size: $ruler*1.2;
+      
+      .icon {
+        margin-right: 0; 
+      }
+    }
+    
+    &.red {
+      display: block;
+      width: 100%;
+      color:$color-red;
+    }
+  }
+  
+  .is-active {
+    background-color: #F9CB48;
+  }
+
+  .display-flex {
+      display: flex;
+  }
+
+  .display-flex-column {
+      @extend .display-flex;
+      flex-direction: column;
+  }
+
+  .flex-wrap {
+      flex-wrap: wrap;
+  }
+
+  .padding {
+      padding: 16px;
+  }
+
+  .pad-8 {
+      padding: 8px;
+  }
+
+  :host ::ng-deep {
+    .updating-animation.mat-progress-bar .mat-progress-bar-fill {
+      transition: transform 100ms linear;
+    }
+  }

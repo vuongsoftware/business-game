@@ -1,0 +1,37 @@
+<div class="display-flex business-wrapper" *ngIf='business.isActive'>
+    <div class="display-flex-column count pad-8">
+        <div class="icon pad-8">
+            <button mat-fab class="revenue-btn" (click)="increaseRevenue()" [disabled]="isIncreaseRevenueButtonDisable">
+                <img [src]="business.icon" class="icon-img">
+            </button>
+        </div>
+        <div class="business-count pad-8">{{business.currentBusinessCount}}</div>
+    </div>
+    <div class="display-flex-column status pad-8">
+        <div class="progress-bar pad-8" [@.disabled]="true">
+            <mat-progress-bar class="mat-rogress-bar" mode="determinate" [value]="value" >
+            </mat-progress-bar>
+            <div class="current-price">
+                {{business.currentPrice | number: '1.2-2'}}
+            </div>
+        </div>
+        <div class="display-flex pad-8 buy">
+            <button mat-button class="buy-btn pad-8 shadow" [disabled]="business.buyPrice > currentBalance" (click)='buyBranch()'>Buy ${{business.buyPrice | number: '1.2-2'}}</button>
+            <div class="time-required pad-8">
+                {{ time * 1000 | date:'H:mm:ss':'UTC'}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="display-flex business-wrapper-inactive" *ngIf='!business.isActive'>
+    <div class="display-flex board pad-8" [ngClass]="{'shadow is-active': business.isBuyable}" (click)='startBusiness()'>
+        <div class="image pad-8">
+            <img [src]="business.icon" class="icon-img">
+        </div>
+        <div class="display-flex-column pad-8 details">
+            <div class="business-name">{{business.name}}</div>
+            <div class="starting-price">${{business.currentPrice | number: '1.2-2'}}</div>
+        </div>
+    </div>
+</div>

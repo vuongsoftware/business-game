@@ -1,0 +1,17 @@
+<div class="game-board display-flex">
+    <app-navbar class="padding navbar"></app-navbar>
+    <div class="display-flex-column body">
+        <div class="header display-flex padding">
+            <div class="scoreboard pad-8">
+                ${{currentBalance | number: '1.2-2'}}
+            </div>
+            <div class="buy-more pad-8">
+                <!-- <button class="shadow"  mat-button>Buy X1</button> -->
+            </div>
+        </div>
+        <div class="game-controller padding display-flex-column flex-wrap">
+            <app-business *ngFor="let business of businesses; let i = index;" [currentIndex]="i" class="business"></app-business>
+        </div>
+    </div>
+    
+</div>
