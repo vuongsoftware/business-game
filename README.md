@@ -16,7 +16,7 @@
     4. Minimalistic approach to design the game.
 
 # How to run the code
-    1. Unzip the file.
+    1. Unzip the dist file. (Shared via email)
     2. Go to the folder using command line and run any http server of your choice.
     3. We can use python to run the server from the command line very easily.
     4. Depending upon the version of python you have run the following command:
